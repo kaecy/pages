@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="latin-1">
+  <title>Gem1 Lookup</title>
+  <style>
+    .box {
+      display: inline-block;
+      border: 1px solid black;
+      height: 50px;
+      width: 50px;
+      text-align: center;
+      font-size: 32pt;
+    }
+    #textbox {
+      position: absolute;
+      left: -200px;
+    }
+    </style>
+</head>
+<body>
+  <span id="letter" class="box">A</span>
+  <span id="info" class="box">1</span>
+  <input  id="textbox" type="text" value=".">
+  
+  <script>
+  var letterBox = document.getElementById("letter")
+  var infoBox = document.getElementById("info")
+  var textBox = document.getElementById("textbox")
+  
+  function activateKeyboard(event) {
+    textBox.focus()
+  }
+  addEventListener("DOMContentLoaded", function() {
+    addEventListener("click", function() {
+      textBox.focus()
+      textBox.setSelectionRange(1, 1)
+    })
+  })
+  document.getElementById('textbox').
+    addEventListener("input", function action(event) {
+      var letter = textBox.value[1]
+      var charCode = letter.charCodeAt(0)
+      var upperCase = letter.toUpperCase()
+      textBox.value =  "."
+      if (charCode > 96 && charCode < 123) {
+        letterBox.textContent = upperCase
+          infoBox.textContent = (charCode - 96).toString()
+      }
+    })
+  </script>
+</body>
+</html>
