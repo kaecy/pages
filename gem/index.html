@@ -36,6 +36,11 @@
       textBox.focus()
       textBox.setSelectionRange(1, 1)
     })
+	// if not mobile browser auto focus
+	if (navigator.userAgent.indexOf("Mobile") == -1) {
+		textBox.focus()
+		textBox.setSelectionRange(1, 1)
+	}
   })
   document.getElementById('textbox').
     addEventListener("input", function action(event) {
